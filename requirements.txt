@@ -1,0 +1,6 @@
+flask>=3.0.0
+flask-cors>=4.0.0  # 可选，前后端分离时需安装
+langchain>=0.1.0
+langchain-openai>=0.0.5
+tabulate>=0.9.0
+sqlparse>=0.4.0
