@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text2SQL - Using Natrual Language to Query Center Database</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        <h1>Text2SQL</h1>
+      </div>
+      <p class="subtitle">Using Natrual Language to Query Center Database</p>
+    </header>
+
+    <main class="main">
+      <section class="input-section">
+        <div class="input-wrapper">
+          <textarea
+            id="questionInput"
+            placeholder="E.g. Count the number of orders using online payment."
+            rows="2"
+            autofocus
+          ></textarea>
+          <button id="submitBtn" class="btn-primary" aria-label="Query">
+            <span class="btn-text">Query</span>
+            <span class="btn-loader hidden"></span>
+          </button>
+        </div>
+        <button id="schemaToggle" class="btn-link">View Database Structure</button>
+      </section>
+
+      <section id="schemaSection" class="schema-section hidden">
+        <h3>Database Structure</h3>
+        <pre id="schemaContent"></pre>
+      </section>
+
+      <section id="resultSection" class="result-section">
+        <div id="sqlBlock" class="sql-block hidden">
+          <h3>Generated SQL</h3>
+          <pre id="sqlContent"></pre>
+        </div>
+        <div id="tableBlock" class="table-block hidden">
+          <h3>Query Result</h3>
+          <div class="table-wrapper">
+            <table id="resultTable"></table>
+          </div>
+        </div>
+        <div id="loadingBlock" class="loading-block hidden">
+          <p>Querying, please wait… (Qwen API may take 10–30 seconds)</p>
+        </div>
+        <div id="errorBlock" class="error-block hidden">
+          <p id="errorText"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Based on Qwen API · Only support SELECT queries</p>
+    </footer>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
